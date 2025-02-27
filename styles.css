@@ -185,7 +185,7 @@ header {
   font-weight: bold;
 }
 
-.arch-reveal {
+.surprise-reveal {
   text-decoration: underline;
   cursor: pointer;
   color: #8aadf4;
@@ -193,17 +193,17 @@ header {
   transition: color 0.3s;
 }
 
-.arch-reveal:hover {
+.surprise-reveal:hover {
   color: #f5a97f;
 }
 
 .about-image {
-  width: 35%;
+  width: 25%;
   display: flex;
-  padding: 10px;
+  padding: 15px;
   justify-content: center;
   align-items: center;
-  border: 2px dashed #8aadf4;
+  border: 3px dashed #8aadf4;
   border-radius: 12px;
   min-height: 300px;
   max-width: 300px;
@@ -211,7 +211,7 @@ header {
 
 .about-image img {
   width: 100%;
-  max-height: 370px;
+  max-height: 450px;
   border-radius: 12px;
 }
 

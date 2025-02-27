@@ -56,10 +56,10 @@ function indecisionOnclick(e) {
 
 document.addEventListener("DOMContentLoaded", function () {
   document
-    .getElementById("reveal-arch")
+    .getElementById("reveal-surprise")
     .addEventListener("click", function (event) {
       event.preventDefault();
-      document.getElementById("arch-text").style.display = "inline";
+      document.getElementById("surprise-text").style.display = "inline";
       this.style.display = "none";
     });
 });
