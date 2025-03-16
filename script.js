@@ -46,12 +46,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function expensifyOnclick(e) {
   e.preventDefault();
-  window.open("https://akashramesh13.github.io/expensify-app/", "_blank");
+  window.open("https://expensify.akashramesh.in/", "_blank");
 }
 
 function indecisionOnclick(e) {
   e.preventDefault();
-  window.open("https://akashramesh13.github.io/indecision-app/", "_blank");
+  window.open("https://indecision.akashramesh.in", "_blank");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
