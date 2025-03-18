@@ -54,6 +54,11 @@ function indecisionOnclick(e) {
   window.open("https://indecision.akashramesh.in", "_blank");
 }
 
+function blogOnClick(e) {
+  e.preventDefault();
+  window.open("https://blog.akashramesh.in", "_blank");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("reveal-surprise")
