@@ -35,9 +35,9 @@
           <a href="#projects" class="btn">Explore My Work</a>
           <a
             href="assets/akash-resume.pdf"
-            target="_blank"
+            download="akash-resume.pdf"
             class="btn"
-            aria-label="View my resume (PDF)"
+            aria-label="Download my resume (PDF)"
             >Download Resume</a
           >
         </div>
@@ -74,7 +74,7 @@
           </p>
 
           <p>
-            When I’m not coding or playing chess, you’ll find me exploring new
+            When I'm not coding or playing chess, you'll find me exploring new
             tech, gaming, or optimizing strategies—on the board or in code.
           </p>
 
@@ -102,20 +102,68 @@
       <div class="content">
         <h2>Projects</h2>
         <div class="project-grid">
-          <div class="project-card" onclick="expensifyOnclick(event)">
-            <img src="assets/expensify.png" alt="Expensify" />
-            <h3>Expensify</h3>
-            <p>Manage your expenses</p>
-          </div>
-          <div class="project-card" onclick="indecisionOnclick(event)">
-            <img src="assets/indecision.png" alt="Indecision" />
-            <h3>Indecision</h3>
-            <p>Put your life in the hands of a computer</p>
-          </div>
-          <div class="project-card" onclick="blogOnClick(event)">
+          <div class="project-card">
             <img src="assets/blog.png" alt="Blog" />
             <h3>Pixel Pursuit</h3>
             <p>A Journey Through Innovation, Code, and Digital Art</p>
+            <div class="project-overlay">
+              <div class="tech-stack">
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Redux</span>
+                <span>Hooks</span>
+                <span>Spring Boot</span>
+                <span>Java</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akashramesh13/blog-frontend" target="_blank" class="project-link">
+                  <img src="assets/github.svg" alt="GitHub" />
+                </a>
+                <a href="https://blog.akashramesh.in" target="_blank" class="project-link">
+                  <img src="assets/live-demo.svg" alt="Live Demo" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="assets/expensify.png" alt="Expensify" />
+            <h3>Expensify</h3>
+            <p>Manage your expenses</p>
+            <div class="project-overlay">
+              <div class="tech-stack">
+                <span>React</span>
+                <span>Redux</span>
+                <span>Firebase</span>
+                <span>OAuth</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akashramesh13/expensify-app" target="_blank" class="project-link">
+                  <img src="assets/github.svg" alt="GitHub" />
+                </a>
+                <a href="https://expensify.akashramesh.in/" target="_blank" class="project-link">
+                  <img src="assets/live-demo.svg" alt="Live Demo" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="assets/indecision.png" alt="Indecision" />
+            <h3>Indecision</h3>
+            <p>Put your life in the hands of a computer</p>
+            <div class="project-overlay">
+              <div class="tech-stack">
+                <span>React</span>
+                <span>Class-based components</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akashramesh13/indecision" target="_blank" class="project-link">
+                  <img src="assets/github.svg" alt="GitHub" />
+                </a>
+                <a href="https://indecision.akashramesh.in" target="_blank" class="project-link">
+                  <img src="assets/live-demo.svg" alt="Live Demo" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -155,7 +203,7 @@
           <a href="https://dev.to/akashramesh13" target="_blank" title="Dev.to">
             <img src="assets/dev.svg" alt="Dev.to" />
           </a>
-          <a href="assets/akash-resume.pdf" target="_blank" title="Resume">
+          <a href="assets/akash-resume.pdf" download="akash-resume.pdf" target="_blank" title="Resume">
             <img src="assets/resume.svg" alt="Resume" />
           </a>
         </div>

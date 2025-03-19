@@ -31,6 +31,14 @@ header {
   backdrop-filter: blur(15px);
   z-index: 1000;
   border-radius: 0px 0px 15px 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+header.hide {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 .logo a {
@@ -77,18 +85,19 @@ header {
 }
 
 .section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 10%;
+  padding: 100px 10% 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
 }
 
 #home {
   background: linear-gradient(135deg, #1e2030, #2d3148);
+  background: -moz-linear-gradient(135deg, #1e2030, #2d3148);
 }
 
 #home .content {
@@ -103,20 +112,22 @@ header {
 }
 
 #about {
-  background: linear-gradient(135deg, #292d3e, #3b4261);
+  background: linear-gradient(135deg, #24273a, #2d3148);
+  background: -moz-linear-gradient(135deg, #24273a, #2d3148);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 }
 
 #projects {
-  height: 115vh;
   background: linear-gradient(135deg, #1e2030, #2d3148);
+  background: -moz-linear-gradient(135deg, #1e2030, #2d3148);
+  padding: 100px 5% 40px;
 }
 
 #contact {
-  background: linear-gradient(135deg, #292d3e, #3b4261);
+  background: linear-gradient(135deg, #24273a, #2d3148);
+  background: -moz-linear-gradient(135deg, #24273a, #2d3148);
 }
 
 .social-icons {
@@ -244,29 +255,114 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   margin: auto;
+  padding: 20px;
 }
 
 .project-card {
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
+  position: relative;
+  background: #1e2030;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 4px 10px rgba(138, 173, 244, 0.3);
 }
 
 .project-card img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  color: #f5a97f;
+  margin: 5px 0;
+}
+
+.project-card p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #cad3f5;
+  margin-bottom: 5px;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 32, 48, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 30px;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+  padding: 0 15px;
+}
+
+.tech-stack span {
+  background: rgba(138, 173, 244, 0.1);
+  color: #8aadf4;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(138, 173, 244, 0.2);
+  transition: all 0.2s ease;
+}
+
+.tech-stack span:hover {
+  background: rgba(138, 173, 244, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(138, 173, 244, 0.2);
+}
+
+.project-links {
+  display: flex;
+  gap: 30px;
+}
+
+.project-link {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+  transform: scale(1.2);
+}
+
+.project-link img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
 }
 
 .contact-text {
@@ -373,22 +469,66 @@ header {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 90%;
+    width: 100%;
     margin: auto;
+    padding: 10px;
   }
 
   .project-card {
     width: 100%;
-    max-width: 320px;
-    padding: 15px;
+    max-width: 100%;
+    padding: 10px;
   }
 
   .project-card img {
     width: 100%;
-    max-height: 160px;
+    height: 180px;
     object-fit: cover;
     border-radius: 8px;
   }
+
+  .project-overlay {
+    padding: 20px;
+  }
+
+  .tech-stack {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .tech-stack span {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+
+  .project-links {
+    gap: 20px;
+  }
+
+  .project-link img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-icons {
+    gap: 15px;
+  }
+
+  .social-icons img {
+    width: 35px;
+    height: 35px;
+  }
+
   #projects h2,
   #contact h2 {
     margin-top: -20px;
@@ -401,5 +541,23 @@ header {
 
   .contact-text {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 5% 30px;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .contact-text {
+    font-size: 1.1rem;
   }
 }

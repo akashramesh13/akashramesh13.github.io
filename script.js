@@ -21,6 +21,35 @@ $(document).ready(function () {
       }
     });
   });
+
+  let lastScrollTop = 0;
+  const header = $('header');
+  const scrollThreshold = 100;
+  let scrollTimeout;
+
+  $(window).on('scroll', function() {
+    clearTimeout(scrollTimeout);
+    
+    scrollTimeout = setTimeout(function() {
+      const currentScroll = $(window).scrollTop();
+      
+      // Only start hiding after scrolling past threshold
+      if (currentScroll > scrollThreshold) {
+        if (currentScroll > lastScrollTop) {
+          // Scrolling down
+          header.addClass('hide');
+        } else {
+          // Scrolling up
+          header.removeClass('hide');
+        }
+      } else {
+        // At the top of the page
+        header.removeClass('hide');
+      }
+      
+      lastScrollTop = currentScroll;
+    }, 20); // Reduced delay for faster response
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -43,21 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: true,
   });
 });
-
-function expensifyOnclick(e) {
-  e.preventDefault();
-  window.open("https://expensify.akashramesh.in/", "_blank");
-}
-
-function indecisionOnclick(e) {
-  e.preventDefault();
-  window.open("https://indecision.akashramesh.in", "_blank");
-}
-
-function blogOnClick(e) {
-  e.preventDefault();
-  window.open("https://blog.akashramesh.in", "_blank");
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   document
