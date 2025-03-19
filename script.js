@@ -23,32 +23,28 @@ $(document).ready(function () {
   });
 
   let lastScrollTop = 0;
-  const header = $('header');
+  const header = $("header");
   const scrollThreshold = 100;
   let scrollTimeout;
 
-  $(window).on('scroll', function() {
+  $(window).on("scroll", function () {
     clearTimeout(scrollTimeout);
-    
-    scrollTimeout = setTimeout(function() {
+
+    scrollTimeout = setTimeout(function () {
       const currentScroll = $(window).scrollTop();
-      
-      // Only start hiding after scrolling past threshold
+
       if (currentScroll > scrollThreshold) {
         if (currentScroll > lastScrollTop) {
-          // Scrolling down
-          header.addClass('hide');
+          header.addClass("hide");
         } else {
-          // Scrolling up
-          header.removeClass('hide');
+          header.removeClass("hide");
         }
       } else {
-        // At the top of the page
-        header.removeClass('hide');
+        header.removeClass("hide");
       }
-      
+
       lastScrollTop = currentScroll;
-    }, 20); // Reduced delay for faster response
+    }, 10);
   });
 });
 
