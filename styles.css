@@ -43,7 +43,7 @@ header.hide {
 
 .logo a {
   text-decoration: none;
-  color: #f4dbd6;
+  color: #cabbed;
   font-size: 24px;
   font-weight: bold;
   font-family: "Sailec", sans-serif;
@@ -266,7 +266,7 @@ header.hide {
   background: #1e2030;
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 1.03s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
   display: flex;
@@ -455,6 +455,7 @@ header.hide {
     height: auto;
     max-width: 100%;
     display: flex;
+    margin-top: 20px;
     justify-content: center;
     align-items: center;
   }
@@ -560,4 +561,14 @@ header.hide {
   .contact-text {
     font-size: 1.1rem;
   }
+}
+
+::selection {
+  background: #f5a97f;
+  color: #1e2030;
+}
+
+::-moz-selection {
+  background: #f5a97f;
+  color: #1e2030;
 }

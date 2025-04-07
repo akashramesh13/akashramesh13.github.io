@@ -11,7 +11,7 @@ $(document).ready(function () {
     let scrollPosition = $(window).scrollTop();
 
     $(".section").each(function () {
-      let sectionTop = $(this).offset().top - 100;
+      let sectionTop = $(this).offset().top - $(window).height() / 2;
       let sectionBottom = sectionTop + $(this).outerHeight();
       let sectionId = $(this).attr("id");
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
   let lastScrollTop = 0;
   const header = $("header");
-  const scrollThreshold = 100;
+  const scrollThreshold = 150;
   let scrollTimeout;
 
   $(window).on("scroll", function () {
