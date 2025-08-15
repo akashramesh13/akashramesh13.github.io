@@ -78,3 +78,26 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.display = "none";
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  const saved = localStorage.getItem("theme");
+  if (saved === "light") {
+    body.classList.add("light-theme");
+    themeToggle.textContent = "☀️";
+  } else {
+    themeToggle.textContent = "🌚";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const isLight = body.classList.toggle("light-theme");
+    themeToggle.textContent = isLight ? "☀️" : "🌚";
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+
+    themeToggle.classList.remove("spin");
+    void themeToggle.offsetWidth;
+    themeToggle.classList.add("spin");
+  });
+});
