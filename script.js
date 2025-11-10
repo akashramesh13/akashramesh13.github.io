@@ -80,21 +80,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+
+  const setIcon = (isLight) => {
+    icon.src = isLight ? "assets/sun.svg" : "assets/moon.svg";
+  };
 
   const saved = localStorage.getItem("theme");
-  if (saved === "light") {
-    body.classList.add("light-theme");
-    themeToggle.textContent = "☀️";
-  } else {
-    themeToggle.textContent = "🌚";
-  }
+  const isLight = saved === "light";
+  if (isLight) body.classList.add("light-theme");
+  setIcon(isLight);
 
   themeToggle.addEventListener("click", () => {
-    const isLight = body.classList.toggle("light-theme");
-    themeToggle.textContent = isLight ? "☀️" : "🌚";
-    localStorage.setItem("theme", isLight ? "light" : "dark");
+    const nowLight = body.classList.toggle("light-theme");
+    setIcon(nowLight);
+    localStorage.setItem("theme", nowLight ? "light" : "dark");
 
     themeToggle.classList.remove("spin");
     void themeToggle.offsetWidth;

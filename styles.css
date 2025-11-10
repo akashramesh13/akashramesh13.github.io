@@ -53,6 +53,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav-left {
@@ -772,4 +773,10 @@ body.light-theme .contact-text a {
 body.light-theme .social-icons img,
 body.light-theme .project-link img {
   filter: none;
+}
+
+#theme-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #8aadf4;
 }
