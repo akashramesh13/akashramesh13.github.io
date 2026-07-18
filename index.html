@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,9 @@
   </head>
   <body>
     <header>
-      <div class="logo"><a href="#home">Akash Ramesh</a></div>
+      <div class="logo">
+        <a href="#home">Akash Ramesh</a>
+      </div>
       <nav>
         <div class="nav-left">
           <button
@@ -23,9 +25,63 @@
             aria-label="Toggle Theme"
             class="theme-toggle"
           >
-            <img id="theme-icon" src="assets/moon.svg" alt="Theme Icon" />
+            <!-- Icons are dynamically hidden/shown via CSS -->
+            <svg
+              id="icon-cat"
+              class="theme-svg active"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.43-2.4 1-3.44 0 0-1.82-6.42-.42-7 1.39-.58 4.64.27 6.42 2.26.65-.17 1.33-.26 2-.26z"
+              ></path>
+            </svg>
+            <svg
+              id="icon-sun"
+              class="theme-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              id="icon-moon"
+              class="theme-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
           </button>
-
           <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -33,212 +89,218 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-
         <div class="nav-right">
-          <div class="hamburger">&#9776;</div>
+          <div class="hamburger">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </div>
         </div>
       </nav>
     </header>
 
-    <section id="home" class="section">
+    <!-- HERO -->
+    <section id="home" class="section hero-section">
       <div class="content">
         <h1>Hey, I'm <span class="highlight">Akash Ramesh</span></h1>
         <p>I <span id="typed-output"></span></p>
         <div class="btn-container">
           <a href="#projects" class="btn">Explore My Work</a>
-          <a
-            href="assets/akash-resume.pdf"
-            download="akash-resume.pdf"
-            class="btn"
-            aria-label="Download my resume (PDF)"
+          <a href="assets/akash-resume.pdf" download class="btn outline"
             >Download Resume</a
           >
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- ABOUT -->
+    <section id="about" class="section text-section">
       <div class="about-container">
         <div class="about-text">
           <h2>About Me</h2>
           <p>
-            I'm <strong>Akash Ramesh</strong>, a
-            <strong>Full Stack Developer</strong> with 5+ years of experience
-            building scalable, high-performance applications.
+            I am a Platform Engineer at <strong>ADP India</strong>. But before
+            I'm a talker, I'm a builder.
           </p>
-
           <p>
-            I specialize in
-            <strong>Node.js, Java, and cloud-native development</strong>,
-            focusing on
-            <strong
-              >microservices, event-driven architecture, and cloud
-              deployment</strong
-            >. At <strong>ADP India</strong>, I build resilient distributed
-            systems that optimize workflows and handle
-            <strong>millions of requests</strong> efficiently.
+            I don't care for unnecessary complexity. I build software that
+            quietly does its job well—fast, offline-capable, and
+            privacy-respecting. I prefer shipping finished products over
+            accumulating half-built repositories.
           </p>
-
           <p>
-            Outside of coding, I’m passionate about chess. I was the
-            <strong>South Zone Gold Medalist</strong> and a
-            <strong>National runner-up</strong> in inter-college tournaments.
+            My recent project, <strong>Aham</strong>, reflects this: no
+            accounts, no cloud sync, no subscriptions. Just a pure journaling
+            experience built on React Native and SQLite that runs anywhere.
           </p>
-
           <p>
-            When I'm not coding or playing chess, you'll find me exploring new
-            tech, gaming, or optimizing strategies—on the board or in code.
+            I value the craftsmanship of taking an idea from a blank terminal to
+            a polished product. When I'm not writing
+            <strong>Java, React, or TypeScript</strong>, I'm probably optimizing
+            my Arch setup.
+          </p>
+          <p>
+            Before software took over, I played chess competitively (South Zone
+            Gold Medalist & National Runner-up).
+            <a href="#" id="reveal-surprise" class="surprise-reveal">Secret?</a>
+            <span id="surprise-text" class="hidden"
+              >I still map out distributed systems like chess openings.</span
+            >
           </p>
         </div>
         <div class="about-image">
-          <p style="color: #8aadf4">
-            <img
-              src="./assets/getting_prize_for_chess.jpeg"
-              alt="Receiving Chess Prize"
-            />
-          </p>
+          <img
+            src="./assets/getting_prize_for_chess.jpeg"
+            alt="Receiving Chess Prize"
+          />
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section">
-      <div class="content">
-        <h2>Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="section layout-section">
+      <div class="content-wrapper">
+        <h2 class="section-title">Things I've Built</h2>
         <div class="project-grid">
-          <div class="project-card">
-            <img src="assets/blog.png" alt="Blog" />
-            <h3>Pixel Pursuit</h3>
-            <p>A Journey Through Innovation, Code, and Digital Art</p>
-            <div class="project-overlay">
+          <!-- AHAM -->
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <img
+                src="assets/aham.png"
+                alt="Aham Screenshot"
+                class="project-image"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div>
+                  <h3>Aham</h3>
+                  <span class="project-subtitle">Cross-platform Journal</span>
+                </div>
+              </div>
+              <p class="project-story">
+                A journal that respects privacy. No accounts, no subscriptions,
+                no cloud sync. Just open the app and write.
+              </p>
+              <div class="tech-stack">
+                <span>React Native</span>
+                <span>SQLite</span>
+                <span>TypeScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://aham.akashramesh.in" target="_blank"
+                  >🌐 Live Demo</a
+                >
+                <a href="https://github.com/akashramesh13/aham" target="_blank"
+                  >💻 GitHub</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- PIXEL PURSUIT -->
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <img
+                src="assets/blog.png"
+                alt="Pixel Pursuit"
+                class="project-image"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div>
+                  <h3>Pixel Pursuit</h3>
+                  <span class="project-subtitle">Full-stack Blog</span>
+                </div>
+              </div>
+              <p class="project-story">
+                My corner of the internet. A place where I write about software,
+                minimalism, and building products.
+              </p>
               <div class="tech-stack">
                 <span>React</span>
-                <span>TypeScript</span>
-                <span>Redux</span>
-                <span>Hooks</span>
                 <span>Spring Boot</span>
-                <span>Java</span>
+                <span>PostgreSQL</span>
               </div>
-              <div class="project-links">
+              <div class="project-actions">
+                <a href="https://blog.akashramesh.in" target="_blank"
+                  >🌐 Visit</a
+                >
                 <a
                   href="https://github.com/akashramesh13/blog-frontend"
                   target="_blank"
-                  class="project-link"
+                  >💻 GitHub</a
                 >
-                  <img src="assets/github.svg" alt="GitHub" />
-                </a>
-                <a
-                  href="https://blog.akashramesh.in"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <img src="assets/live-demo.svg" alt="Live Demo" />
-                </a>
               </div>
             </div>
-          </div>
-          <div class="project-card">
-            <img src="assets/expensify.png" alt="Expensify" />
-            <h3>Expensify</h3>
-            <p>Manage your expenses</p>
-            <div class="project-overlay">
+          </article>
+
+          <!-- EXPENSIFY -->
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <img
+                src="assets/expensify.png"
+                alt="Expensify"
+                class="project-image"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div>
+                  <h3>Expensify</h3>
+                  <span class="project-subtitle">Expense Tracker</span>
+                </div>
+              </div>
+              <p class="project-story">
+                A real-world application handling authentication, complex state
+                management, and strict UI standards.
+              </p>
               <div class="tech-stack">
                 <span>React</span>
                 <span>Redux</span>
                 <span>Firebase</span>
-                <span>OAuth</span>
               </div>
-              <div class="project-links">
+              <div class="project-actions">
+                <a href="https://expensify.akashramesh.in" target="_blank"
+                  >🌐 Visit</a
+                >
                 <a
                   href="https://github.com/akashramesh13/expensify-app"
                   target="_blank"
-                  class="project-link"
+                  >💻 GitHub</a
                 >
-                  <img src="assets/github.svg" alt="GitHub" />
-                </a>
-                <a
-                  href="https://expensify.akashramesh.in/"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <img src="assets/live-demo.svg" alt="Live Demo" />
-                </a>
               </div>
             </div>
-          </div>
-          <div class="project-card">
-            <img src="assets/indecision.png" alt="Indecision" />
-            <h3>Indecision</h3>
-            <p>Put your life in the hands of a computer</p>
-            <div class="project-overlay">
-              <div class="tech-stack">
-                <span>React</span>
-                <span>Class-based components</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/akashramesh13/indecision"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <img src="assets/github.svg" alt="GitHub" />
-                </a>
-                <a
-                  href="https://indecision.akashramesh.in"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <img src="assets/live-demo.svg" alt="Live Demo" />
-                </a>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="content">
-        <h2>Contact Me</h2>
+        <h2>Let's Connect</h2>
         <p class="contact-text">
-          📬 Wanna chat? Shoot me a message at
-          <a href="mailto:hello@akashramesh.in"> hello@akashramesh.in </a>
-          🚀
+          Have a problem to solve? Drop me an email at
+          <a href="mailto:hello@akashramesh.in">hello@akashramesh.in</a>.
         </p>
-
         <div class="social-icons">
-          <a
-            href="https://github.com/akashramesh13"
-            target="_blank"
-            title="GitHub"
+          <a href="https://github.com/akashramesh13" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/akashramesh1999/" target="_blank"
+            >LinkedIn</a
           >
-            <img src="assets/github.svg" alt="GitHub" />
-          </a>
-          <a
-            href="https://linkedin.com/in/akashramesh1999/"
-            target="_blank"
-            title="LinkedIn"
-          >
-            <img src="assets/linkedin.svg" alt="LinkedIn" />
-          </a>
-          <a
-            href="https://leetcode.com/u/akashramesh13/"
-            target="_blank"
-            title="Leetcode"
-          >
-            <img src="assets/leetcode.svg" alt="Leetcode" />
-          </a>
-          <a href="https://dev.to/akashramesh13" target="_blank" title="Dev.to">
-            <img src="assets/dev.svg" alt="Dev.to" />
-          </a>
-          <a
-            href="assets/akash-resume.pdf"
-            download="akash-resume.pdf"
-            target="_blank"
-            title="Resume"
-          >
-            <img src="assets/resume.svg" alt="Resume" />
-          </a>
+          <a href="https://dev.to/akashramesh13" target="_blank">Dev.to</a>
         </div>
       </div>
     </section>
