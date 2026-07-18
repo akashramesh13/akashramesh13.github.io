@@ -25,13 +25,12 @@
             aria-label="Toggle Theme"
             class="theme-toggle"
           >
-            <!-- Icons are dynamically hidden/shown via CSS -->
             <svg
               id="icon-cat"
               class="theme-svg active"
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -47,8 +46,8 @@
               id="icon-sun"
               class="theme-svg"
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -70,8 +69,8 @@
               id="icon-moon"
               class="theme-svg"
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -109,7 +108,6 @@
       </nav>
     </header>
 
-    <!-- HERO -->
     <section id="home" class="section hero-section">
       <div class="content">
         <h1>Hey, I'm <span class="highlight">Akash Ramesh</span></h1>
@@ -128,34 +126,38 @@
       <div class="about-container">
         <div class="about-text">
           <h2>About Me</h2>
+
           <p>
-            I am a Platform Engineer at <strong>ADP India</strong>. But before
-            I'm a talker, I'm a builder.
+            Hey, I'm <strong>Akash</strong> — a Platform Engineer at
+            <strong>ADP India</strong>. I spend most of my time building backend
+            systems, but I genuinely enjoy taking ideas from a blank editor to
+            something people can use.
           </p>
+
           <p>
-            I don't care for unnecessary complexity. I build software that
-            quietly does its job well—fast, offline-capable, and
-            privacy-respecting. I prefer shipping finished products over
-            accumulating half-built repositories.
+            I'm drawn to software that's simple, fast and respects its users. I
+            prefer thoughtful design over endless features, and privacy over
+            convenience whenever possible.
           </p>
+
           <p>
-            My recent project, <strong>Aham</strong>, reflects this: no
-            accounts, no cloud sync, no subscriptions. Just a pure journaling
-            experience built on React Native and SQLite that runs anywhere.
+            That philosophy is what led me to build <strong>Aham</strong> — a
+            cross-platform journaling app built with React Native that works
+            completely offline. No accounts, no cloud sync, no subscriptions.
+            Just open the app and write.
           </p>
+
           <p>
-            I value the craftsmanship of taking an idea from a blank terminal to
-            a polished product. When I'm not writing
-            <strong>Java, React, or TypeScript</strong>, I'm probably optimizing
-            my Arch setup.
+            These days I'm usually building side projects, reading about
+            software architecture, or trying out new ideas that seem interesting
+            enough to spend a weekend on.
           </p>
+
           <p>
-            Before software took over, I played chess competitively (South Zone
-            Gold Medalist & National Runner-up).
-            <a href="#" id="reveal-surprise" class="surprise-reveal">Secret?</a>
-            <span id="surprise-text" class="hidden"
-              >I still map out distributed systems like chess openings.</span
-            >
+            Before software completely took over my life, I played chess
+            competitively and was fortunate enough to become a
+            <strong>South Zone Gold Medalist</strong> and
+            <strong>National Runner-up</strong>.
           </p>
         </div>
         <div class="about-image">
@@ -176,9 +178,11 @@
           <article class="project-card">
             <div class="card-image-wrapper">
               <img
-                src="assets/aham.png"
+                src="assets/aham-dark.png"
+                data-light="assets/aham-light.png"
+                data-dark="assets/aham-dark.png"
                 alt="Aham Screenshot"
-                class="project-image"
+                class="project-image theme-aware-img"
               />
             </div>
             <div class="project-content">
@@ -198,12 +202,15 @@
                 <span>TypeScript</span>
               </div>
               <div class="project-actions">
-                <a href="https://aham.akashramesh.in" target="_blank"
-                  >🌐 Live Demo</a
-                >
-                <a href="https://github.com/akashramesh13/aham" target="_blank"
-                  >💻 GitHub</a
-                >
+                <a href="https://aham.akashramesh.in" target="_blank">
+                  🌐 Visit
+                </a>
+
+                <a href="assets/aham.apk" download> 📱 Download APK </a>
+
+                <a href="https://github.com/akashramesh13/aham" target="_blank">
+                  💻 GitHub
+                </a>
               </div>
             </div>
           </article>
@@ -213,8 +220,10 @@
             <div class="card-image-wrapper">
               <img
                 src="assets/blog.png"
+                data-light="assets/blog-light.png"
+                data-dark="assets/blog-dark.png"
                 alt="Pixel Pursuit"
-                class="project-image"
+                class="project-image theme-aware-img"
               />
             </div>
             <div class="project-content">
@@ -226,7 +235,7 @@
               </div>
               <p class="project-story">
                 My corner of the internet. A place where I write about software,
-                minimalism, and building products.
+                Linux, and the things I enjoy building.
               </p>
               <div class="tech-stack">
                 <span>React</span>
@@ -252,7 +261,9 @@
               <img
                 src="assets/expensify.png"
                 alt="Expensify"
-                class="project-image"
+                data-light="assets/expensify-light.png"
+                data-dark="assets/expensify-dark.png"
+                class="project-image theme-aware-img"
               />
             </div>
             <div class="project-content">
@@ -263,8 +274,9 @@
                 </div>
               </div>
               <p class="project-story">
-                A real-world application handling authentication, complex state
-                management, and strict UI standards.
+                One of the first applications I built while learning React. It
+                taught me authentication, state management and how to build
+                interfaces people can actually use.
               </p>
               <div class="tech-stack">
                 <span>React</span>
@@ -283,6 +295,40 @@
               </div>
             </div>
           </article>
+
+          <!-- INDECISION -->
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <!-- Using data attributes for light and dark image sources -->
+              <img
+                src="assets/indecision-dark.png"
+                data-light="assets/indecision-light.png"
+                data-dark="assets/indecision-dark.png"
+                alt="Indecision"
+                class="project-image theme-aware-img theme-aware-img"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div>
+                  <h3>Indecision</h3>
+                  <span class="project-subtitle">Decision Maker</span>
+                </div>
+              </div>
+              <p class="project-story">
+                A fun little project that settles the "I don't know" problem
+                with a single click.
+              </p>
+              <div class="tech-stack">
+                <span>React</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank">🌐 Live Demo</a>
+                <a href="#" target="_blank">💻 GitHub</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -296,11 +342,17 @@
           <a href="mailto:hello@akashramesh.in">hello@akashramesh.in</a>.
         </p>
         <div class="social-icons">
-          <a href="https://github.com/akashramesh13" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/akashramesh1999/" target="_blank"
-            >LinkedIn</a
-          >
-          <a href="https://dev.to/akashramesh13" target="_blank">Dev.to</a>
+          <a href="https://github.com/akashramesh13" target="_blank">
+            GitHub
+          </a>
+
+          <a href="https://linkedin.com/in/akashramesh1999/" target="_blank">
+            LinkedIn
+          </a>
+
+          <a href="https://leetcode.com/u/akashramesh13/" target="_blank">
+            LeetCode
+          </a>
         </div>
       </div>
     </section>
