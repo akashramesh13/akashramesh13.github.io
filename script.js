@@ -3,15 +3,18 @@ $(document).ready(function () {
   $(".hamburger").on("click", function (e) {
     e.stopPropagation();
     $(".nav-links").toggleClass("active");
+    $(this).toggleClass("active");
   });
 
   $(".nav-links a").on("click", function () {
     $(".nav-links").removeClass("active");
+    $(".hamburger").removeClass("active");
   });
 
   $(document).on("click", function (e) {
     if (!$(e.target).closest("nav").length) {
       $(".nav-links").removeClass("active");
+      $(".hamburger").removeClass("active");
     }
   });
 
@@ -44,6 +47,64 @@ $(document).ready(function () {
       header.removeClass("hide");
     }
     lastScrollTop = currentScroll;
+  });
+
+  // Scroll Progress Bar
+  const progressBar = document.getElementById("scroll-progress");
+  if (progressBar) {
+    $(window).on("scroll", function () {
+      const scrollTotal = $(document).height() - $(window).height();
+      const scrollPosition = $(window).scrollTop();
+      const scrollPercent = (scrollPosition / scrollTotal) * 100;
+      progressBar.style.width = scrollPercent + "%";
+    });
+  }
+
+  // Scroll Reveal Animations
+  const revealElements = document.querySelectorAll(
+    "#about h2, .about-text p, .about-image, #projects h2, .project-card, #contact h2, .contact-text"
+  );
+
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          requestAnimationFrame(() => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            } else {
+              entry.target.classList.remove("active");
+            }
+          });
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: "-15% 0px 0px 0px",
+      },
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+  }
+
+  // Disappear scroll cue forever once scrolling starts
+  const scrollCue = document.querySelector(".scroll-cue");
+  if (scrollCue) {
+    window.addEventListener("scroll", function hideCue() {
+      if (window.scrollY > 50) {
+        scrollCue.style.opacity = "0";
+        scrollCue.style.transition = "opacity 0.4s";
+        setTimeout(() => scrollCue.remove(), 400);
+        window.removeEventListener("scroll", hideCue);
+      }
+    }, { passive: true });
+  }
+
+  // Global Cursor Tracking for Grid Glow
+  document.body.addEventListener("mousemove", function (e) {
+    // Using clientX/Y since the background is fixed to the viewport
+    document.body.style.setProperty("--mouse-x", e.clientX + "px");
+    document.body.style.setProperty("--mouse-y", e.clientY + "px");
   });
 });
 
@@ -146,6 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(activeIconId).classList.add("active");
     }
 
+    // Update Dynamic Favicon
+    updateFavicon(themeName);
+
     // NEW: Swap Theme-Aware Images
     document.querySelectorAll(".theme-aware-img").forEach((img) => {
       if (themeName === "theme-light") {
@@ -155,5 +219,40 @@ document.addEventListener("DOMContentLoaded", () => {
         img.src = img.getAttribute("data-dark");
       }
     });
+  }
+
+  // Helper to dynamically change favicon based on theme color
+  function updateFavicon(themeName) {
+    let accentColor = "#f5a97f";
+    let bgColor = "#24273a"; // Catppuccin
+    let textColor = "#ffffff";
+
+    if (themeName === "theme-light") {
+      accentColor = "#f97316";
+      bgColor = "#fcfcfc";
+      textColor = "#18181b";
+    } else if (themeName === "theme-terminal") {
+      accentColor = "#22c55e";
+      bgColor = "#09090b";
+      textColor = "#ffffff";
+    }
+
+    const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="24" fill="${bgColor}" />
+  <text x="50" y="68" font-family="monospace, system-ui, -apple-system, sans-serif" font-size="46" font-weight="900" fill="${textColor}" text-anchor="middle" letter-spacing="-2">
+    <tspan fill="${accentColor}">&lt;</tspan>A<tspan fill="${accentColor}">/&gt;</tspan>
+  </text>
+</svg>`.trim();
+
+    const blob = new Blob([svg], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(blob);
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.href = url;
   }
 });

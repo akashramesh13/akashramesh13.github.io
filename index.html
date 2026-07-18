@@ -7,23 +7,27 @@
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
-      type="image/x-icon"
-      href="/assets/favicon_io/favicon.ico"
+      type="image/svg+xml"
+      href="assets/favicon.svg"
     />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   </head>
   <body>
-    <header>
+    <!-- Fixed Background Canvas -->
+    <div id="bg-canvas"></div>
+    <div id="bg-glow"></div>
+
+    <header class="glass-high">
       <div class="logo">
-        <a href="#home">Akash Ramesh</a>
+        <a href="#home"><span class="bracket">&lt;</span>A<span class="bracket">/&gt;</span></a>
       </div>
       <nav>
         <div class="nav-left">
           <button
             id="theme-toggle"
             aria-label="Toggle Theme"
-            class="theme-toggle"
+            class="theme-toggle glass-medium glass-interactive"
           >
             <svg
               id="icon-cat"
@@ -106,6 +110,7 @@
           </div>
         </div>
       </nav>
+      <div id="scroll-progress"></div>
     </header>
 
     <section id="home" class="section hero-section">
@@ -113,16 +118,17 @@
         <h1>Hi, I'm <span class="highlight">Akash Ramesh</span></h1>
         <p>I <span id="typed-output"></span></p>
         <div class="btn-container">
-          <a href="#projects" class="btn">Explore My Work</a>
-          <a href="assets/akash-resume.pdf" download class="btn outline"
+          <a href="#projects" class="btn glass-medium glass-interactive">Explore My Work</a>
+          <a href="assets/akash-resume.pdf" download class="btn outline glass-medium glass-interactive"
             >Download Resume</a
           >
         </div>
       </div>
+      <div class="scroll-cue"></div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section text-section">
+    <section id="about" class="section text-section reveal">
       <div class="about-container">
         <div class="about-text">
           <h2>About Me</h2>
@@ -170,12 +176,12 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section layout-section">
+    <section id="projects" class="section layout-section reveal">
       <div class="content-wrapper">
         <h2 class="section-title">Things I've Built</h2>
         <div class="project-grid">
           <!-- AHAM -->
-          <article class="project-card">
+          <article class="project-card glass-medium glass-interactive">
             <div class="card-image-wrapper">
               <img
                 src="assets/aham-dark.png"
@@ -216,7 +222,7 @@
           </article>
 
           <!-- PIXEL PURSUIT -->
-          <article class="project-card">
+          <article class="project-card glass-medium glass-interactive">
             <div class="card-image-wrapper">
               <img
                 src="assets/blog.png"
@@ -256,7 +262,7 @@
           </article>
 
           <!-- EXPENSIFY -->
-          <article class="project-card">
+          <article class="project-card glass-medium glass-interactive">
             <div class="card-image-wrapper">
               <img
                 src="assets/expensify.png"
@@ -297,7 +303,7 @@
           </article>
 
           <!-- INDECISION -->
-          <article class="project-card">
+          <article class="project-card glass-medium glass-interactive">
             <div class="card-image-wrapper">
               <!-- Using data attributes for light and dark image sources -->
               <img
@@ -334,7 +340,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section">
+    <section id="contact" class="section reveal">
       <div class="content">
         <h2>Let's Connect</h2>
         <p class="contact-text">
@@ -342,15 +348,15 @@
           <a href="mailto:hello@akashramesh.in">hello@akashramesh.in</a>.
         </p>
         <div class="social-icons">
-          <a href="https://github.com/akashramesh13" target="_blank">
+          <a href="https://github.com/akashramesh13" target="_blank" class="glass-medium glass-interactive">
             GitHub
           </a>
 
-          <a href="https://linkedin.com/in/akashramesh1999/" target="_blank">
+          <a href="https://linkedin.com/in/akashramesh1999/" target="_blank" class="glass-medium glass-interactive">
             LinkedIn
           </a>
 
-          <a href="https://leetcode.com/u/akashramesh13/" target="_blank">
+          <a href="https://leetcode.com/u/akashramesh13/" target="_blank" class="glass-medium glass-interactive">
             LeetCode
           </a>
         </div>
