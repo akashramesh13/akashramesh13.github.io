@@ -133,41 +133,41 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // The rest of your JS for themes and navigation remains entirely unchanged.
 
-// 3-Way Theme Switcher Logic (Flawless SVG swap)
-// 3-Way Theme Switcher Logic (OS Default Aware)
+// 4-Way Theme Switcher Logic (System Default + 3 manual themes)
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const themeToggle = document.getElementById("theme-toggle");
 
-  // Theme cycle order
-  const themes = ["theme-light", "theme-terminal", "theme-catppuccin"];
+  // Theme cycle order: system is first and default
+  const themes = ["theme-system", "theme-light", "theme-terminal", "theme-catppuccin"];
   const icons = {
+    "theme-system": "icon-system",
     "theme-light": "icon-sun",
     "theme-terminal": "icon-moon",
     "theme-catppuccin": "icon-cat",
   };
 
-  // 1. Check for saved override, otherwise read OS Preference
-  let savedTheme = localStorage.getItem("portfolio-theme");
-  let currentTheme = savedTheme;
-
-  if (!savedTheme) {
+  // Resolve OS preference to a concrete theme
+  function getSystemTheme() {
     const prefersDark =
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
-    currentTheme = prefersDark ? "theme-terminal" : "theme-light";
+    return prefersDark ? "theme-terminal" : "theme-light";
   }
 
-  // Apply initial theme (Don't save to storage if it's just following OS)
+  // 1. Check for saved override, otherwise default to system
+  let savedTheme = localStorage.getItem("portfolio-theme");
+  let currentTheme = savedTheme || "theme-system";
+
+  // Apply initial theme
   applyTheme(currentTheme, false);
 
-  // 2. Real-time listener: Switch automatically if user changes OS theme (only if no manual override)
+  // 2. Real-time listener: auto-switch when OS theme changes (only in system mode)
   window
     .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      if (!localStorage.getItem("portfolio-theme")) {
-        currentTheme = e.matches ? "theme-terminal" : "theme-light";
-        applyTheme(currentTheme, false);
+    .addEventListener("change", () => {
+      if (currentTheme === "theme-system") {
+        applyTheme("theme-system", false);
       }
     });
 
@@ -177,8 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let nextIndex = (currentIndex + 1) % themes.length;
     currentTheme = themes[nextIndex];
 
-    // User explicitly clicked, so save their choice to override OS
-    applyTheme(currentTheme, true);
+    if (currentTheme === "theme-system") {
+      // Going back to system = remove override
+      localStorage.removeItem("portfolio-theme");
+      applyTheme(currentTheme, false);
+    } else {
+      // User explicitly chose a theme
+      applyTheme(currentTheme, true);
+    }
 
     // Butter animation
     themeToggle.style.transform = "scale(0.9) rotate(45deg)";
@@ -189,15 +195,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Core update function
   function applyTheme(themeName, saveToStorage = false) {
-    // Clear all theme classes and apply the active one
+    // Resolve the actual CSS class to apply
+    const cssTheme = themeName === "theme-system" ? getSystemTheme() : themeName;
+
+    // Clear all theme classes and apply the resolved one
     body.classList.remove("theme-light", "theme-terminal", "theme-catppuccin");
-    body.classList.add(themeName);
+    body.classList.add(cssTheme);
 
     if (saveToStorage) {
       localStorage.setItem("portfolio-theme", themeName);
     }
 
-    // Swap the SVG
+    // Swap the SVG icon to match the selected mode (not the resolved theme)
     document.querySelectorAll(".theme-svg").forEach((svg) => {
       svg.classList.remove("active");
     });
@@ -207,12 +216,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(activeIconId).classList.add("active");
     }
 
-    // Update Dynamic Favicon
-    updateFavicon(themeName);
+    // Update Dynamic Favicon (uses resolved CSS theme)
+    updateFavicon(cssTheme);
 
-    // NEW: Swap Theme-Aware Images
+    // Swap Theme-Aware Images (uses resolved CSS theme)
     document.querySelectorAll(".theme-aware-img").forEach((img) => {
-      if (themeName === "theme-light") {
+      if (cssTheme === "theme-light") {
         img.src = img.getAttribute("data-light");
       } else {
         // Both terminal and catppuccin are dark themes

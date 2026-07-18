@@ -442,7 +442,7 @@ nav {
   transform: translateX(-50%);
   width: 24px;
   height: 36px;
-  border: 2px solid var(--text-muted);
+  border: 2px solid var(--accent);
   border-radius: 12px;
   opacity: 0.5;
   animation: fadePulse 2s infinite;
@@ -456,7 +456,7 @@ nav {
   transform: translateX(-50%);
   width: 4px;
   height: 6px;
-  background: var(--text-muted);
+  background: var(--accent);
   border-radius: 2px;
   animation: scrollWheel 2s infinite;
 }
