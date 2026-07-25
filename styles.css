@@ -42,7 +42,7 @@
   }
 }
 
-body.theme-light {
+:root.theme-light {
   /* Light: Aham Vibe */
   --bg-main: #fcfcfc;
   --bg-gradient: linear-gradient(135deg, #f4f4f5, #ffffff);
@@ -61,7 +61,7 @@ body.theme-light {
   --glass-highlight: rgba(255, 255, 255, 0.8);
 }
 
-body.theme-terminal {
+:root.theme-terminal {
   /* Terminal: Black & Green */
   --bg-main: #09090b;
   --bg-gradient: linear-gradient(135deg, #000000, #09090b);

@@ -199,8 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const cssTheme = themeName === "theme-system" ? getSystemTheme() : themeName;
 
     // Clear all theme classes and apply the resolved one
-    body.classList.remove("theme-light", "theme-terminal", "theme-catppuccin");
-    body.classList.add(cssTheme);
+    document.documentElement.classList.remove("theme-light", "theme-terminal", "theme-catppuccin");
+    document.documentElement.classList.add(cssTheme);
 
     if (saveToStorage) {
       localStorage.setItem("portfolio-theme", themeName);
