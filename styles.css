@@ -43,22 +43,22 @@
 }
 
 :root.theme-light {
-  /* Light: Aham Vibe */
-  --bg-main: #fcfcfc;
-  --bg-gradient: linear-gradient(135deg, #f4f4f5, #ffffff);
+  /* Light: Warm, understated — Pixel Pursuit burgundy */
+  --bg-main: #f8f6f2;
+  --bg-gradient: linear-gradient(135deg, #f5f3ee, #faf8f4);
   --bg-card: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.2));
-  --text-main: #18181b;
-  --text-muted: #52525b;
-  --accent: #f97316;
-  --accent-secondary: #3b82f6;
-  --header-bg: rgba(255, 255, 255, 0.4);
-  --tag-bg: rgba(59, 130, 246, 0.1);
-  --tag-border: rgba(59, 130, 246, 0.2);
-  --grid-color: rgba(0, 0, 0, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-highlight: rgba(255, 255, 255, 0.8);
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.15));
+  --text-main: #1a1a1a;
+  --text-muted: #5c5c5c;
+  --accent: #8a0322;
+  --accent-secondary: #8a0322;
+  --header-bg: rgba(248, 246, 242, 0.5);
+  --tag-bg: rgba(138, 3, 34, 0.06);
+  --tag-border: rgba(138, 3, 34, 0.15);
+  --grid-color: rgba(0, 0, 0, 0.025);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.6);
 }
 
 :root.theme-terminal {
@@ -119,18 +119,16 @@ body {
 }
 
 #bg-glow {
-  background: radial-gradient(circle 550px at var(--mouse-x, -100%) var(--mouse-y, -100%),
+  background: radial-gradient(circle 400px at var(--mouse-x, -100%) var(--mouse-y, -100%),
       var(--accent),
       transparent 60%);
   opacity: 0;
-  transition: opacity 0.8s ease;
-  filter: blur(60px);
-  /* Massive blur for a soft, aurora-like flashlight */
+  transition: opacity 1s ease;
+  filter: blur(80px);
 }
 
 body:hover #bg-glow {
-  opacity: 0.08;
-  /* Ultra-subtle illumination */
+  opacity: 0.03;
 }
 
 /* MATERIAL SYSTEM (Liquid Glass) */
@@ -195,12 +193,11 @@ body:hover #bg-glow {
 }
 
 .glass-interactive:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--glass-highlight);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 2px 20px rgba(255, 255, 255, 0.03);
+    0 12px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 var(--glass-highlight);
 }
 
 .glass-interactive:hover::before {
@@ -498,8 +495,19 @@ nav {
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 18px;
-  /* Smooth rounded corners */
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn.filled {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
+
+.btn.filled:hover {
+  background: rgba(138, 3, 34, 0.1);
+  color: var(--accent);
 }
 
 .btn.outline {
@@ -559,18 +567,25 @@ nav {
 /* Clean, Simple About Image */
 .about-image {
   width: 340px;
-  height: 420px;
   justify-self: end;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .about-image img {
   width: 100%;
-  height: 100%;
+  height: 420px;
   object-fit: cover;
   object-position: top center;
+  border-radius: 10px;
+}
+
+.about-image-caption {
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
 }
 
 /* PROJECTS - Perfected Grid & Alignment */
@@ -582,7 +597,7 @@ nav {
 }
 
 .project-card {
-  border-radius: 24px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
 }

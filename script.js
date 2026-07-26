@@ -116,10 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
     new Typed("#typed-output", {
       strings: [
         "build things I wish existed.",
+        "think moves ahead, usually.",
         "prefer privacy over convenience.",
-        "believe less is usually more.",
-        "choose offline whenever possible.",
-        "am currently building Aham.",
+        "believe less is more.",
+        "debug for fun sometimes.",
+        "play the French. No regrets.",
       ],
       typeSpeed: 45,
       backSpeed: 20,

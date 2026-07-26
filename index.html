@@ -1,416 +1,367 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akash Ramesh</title>
-    <script>
-      (function() {
-        var savedTheme = localStorage.getItem("portfolio-theme") || "theme-system";
-        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var cssTheme = savedTheme === "theme-system" ? (prefersDark ? "theme-terminal" : "theme-light") : savedTheme;
-        document.documentElement.classList.add(cssTheme);
-      })();
-    </script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  </head>
-  <body>
-    <!-- Fixed Background Canvas -->
-    <div id="bg-canvas"></div>
-    <div id="bg-glow"></div>
 
-    <header class="glass-high">
-      <div class="logo">
-        <a href="#home"
-          ><span class="bracket">&lt;</span>A<span class="bracket"
-            >/&gt;</span
-          ></a
-        >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akash Ramesh</title>
+  <script>
+    (function () {
+      var savedTheme = localStorage.getItem("portfolio-theme") || "theme-system";
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var cssTheme = savedTheme === "theme-system" ? (prefersDark ? "theme-terminal" : "theme-light") : savedTheme;
+      document.documentElement.classList.add(cssTheme);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<body>
+  <!-- Fixed Background Canvas -->
+  <div id="bg-canvas"></div>
+  <div id="bg-glow"></div>
+
+  <header class="glass-high">
+    <div class="logo">
+      <a href="#home"><span class="bracket">&lt;</span>A<span class="bracket">/&gt;</span></a>
+    </div>
+    <nav>
+      <div class="nav-left">
+        <button id="theme-toggle" aria-label="Toggle Theme" class="theme-toggle glass-medium glass-interactive">
+          <svg id="icon-system" class="theme-svg active" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <svg id="icon-cat" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.43-2.4 1-3.44 0 0-1.82-6.42-.42-7 1.39-.58 4.64.27 6.42 2.26.65-.17 1.33-.26 2-.26z">
+            </path>
+          </svg>
+          <svg id="icon-sun" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="icon-moon" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <nav>
-        <div class="nav-left">
-          <button
-            id="theme-toggle"
-            aria-label="Toggle Theme"
-            class="theme-toggle glass-medium glass-interactive"
-          >
-            <svg
-              id="icon-system"
-              class="theme-svg active"
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-            <svg
-              id="icon-cat"
-              class="theme-svg"
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.43-2.4 1-3.44 0 0-1.82-6.42-.42-7 1.39-.58 4.64.27 6.42 2.26.65-.17 1.33-.26 2-.26z"
-              ></path>
-            </svg>
-            <svg
-              id="icon-sun"
-              class="theme-svg"
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg
-              id="icon-moon"
-              class="theme-svg"
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="nav-right">
-          <div class="hamburger">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </div>
-        </div>
-      </nav>
-      <div id="scroll-progress"></div>
-    </header>
-
-    <section id="home" class="section hero-section">
-      <div class="content">
-        <h1>Hi, I'm <span class="highlight">Akash Ramesh</span></h1>
-        <p>I <span id="typed-output"></span></p>
-        <div class="btn-container">
-          <a href="#projects" class="btn glass-medium glass-interactive"
-            >Explore My Work</a
-          >
-          <a
-            href="assets/akash-resume.pdf"
-            download
-            class="btn outline glass-medium glass-interactive"
-            >Download Resume</a
-          >
+      <div class="nav-right">
+        <div class="hamburger">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </div>
       </div>
-      <div class="scroll-cue"></div>
-    </section>
+    </nav>
+    <div id="scroll-progress"></div>
+  </header>
 
-    <!-- ABOUT -->
-    <section id="about" class="section text-section reveal">
-      <div class="about-container">
-        <div class="about-text">
-          <h2>About Me</h2>
-
-          <p>
-            Hey, I'm <strong>Akash</strong> - a Platform Engineer at
-            <strong>ADP India</strong>. I spend most of my time building backend
-            systems, but I genuinely enjoy taking ideas from a blank editor to
-            something people can use.
-          </p>
-
-          <p>
-            I'm drawn to software that's simple, fast and respects its users. I
-            prefer thoughtful design over endless features, and privacy over
-            convenience whenever possible.
-          </p>
-
-          <p>
-            That philosophy is what led me to build <strong>Aham</strong> - a
-            cross-platform journaling app built with React Native that works
-            completely offline. No accounts, no cloud sync, no subscriptions.
-            Just open the app and write.
-          </p>
-
-          <p>
-            These days I'm usually building side projects, reading about
-            software architecture, or trying out new ideas that seem interesting
-            enough to spend a weekend on.
-          </p>
-
-          <p>
-            Before software completely took over my life, I played chess
-            competitively and was fortunate enough to become a
-            <strong>South Zone Gold Medalist</strong> and
-            <strong>National Runner-up</strong>.
-          </p>
-        </div>
-        <div class="about-image">
-          <img
-            src="./assets/getting_prize_for_chess.jpeg"
-            alt="Receiving Chess Prize"
-          />
-        </div>
+  <section id="home" class="section hero-section">
+    <div class="content">
+      <h1>Hi, I'm <span class="highlight">Akash Ramesh</span></h1>
+      <p>I <span id="typed-output"></span></p>
+      <div class="btn-container">
+        <a href="#projects" class="btn glass-medium glass-interactive">Explore My Work</a>
+        <a href="assets/akash-resume.pdf" download class="btn filled glass-medium glass-interactive">Download
+          Resume</a>
       </div>
-    </section>
+    </div>
+    <div class="scroll-cue"></div>
+  </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section layout-section reveal">
-      <div class="content-wrapper">
-        <h2 class="section-title">Things I've Built</h2>
-        <div class="project-grid">
-          <!-- AHAM -->
-          <article class="project-card glass-medium glass-interactive">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/aham-dark.png"
-                data-light="assets/aham-light.png"
-                data-dark="assets/aham-dark.png"
-                alt="Aham Screenshot"
-                class="project-image theme-aware-img"
-              />
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <div>
-                  <h3>Aham</h3>
-                  <span class="project-subtitle">Cross-platform Journal</span>
-                </div>
-              </div>
-              <p class="project-story">
-                A journal that respects privacy. No accounts, no subscriptions,
-                no cloud sync. Just open the app and write.
-              </p>
-              <div class="tech-stack">
-                <span>React Native</span>
-                <span>SQLite</span>
-                <span>TypeScript</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://aham.akashramesh.in" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Visit
-                </a>
+  <!-- ABOUT -->
+  <section id="about" class="section text-section reveal">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Me</h2>
 
-                <a href="assets/aham.apk" download> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download APK </a>
-
-                <a href="https://github.com/akashramesh13/aham" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PIXEL PURSUIT -->
-          <article class="project-card glass-medium glass-interactive">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/blog.png"
-                data-light="assets/blog-light.png"
-                data-dark="assets/blog-dark.png"
-                alt="Pixel Pursuit"
-                class="project-image theme-aware-img"
-              />
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <div>
-                  <h3>Pixel Pursuit</h3>
-                  <span class="project-subtitle">Full-stack Blog</span>
-                </div>
-              </div>
-              <p class="project-story">
-                My corner of the internet. A place where I write about software,
-                Linux, and the things I enjoy building.
-              </p>
-              <div class="tech-stack">
-                <span>React</span>
-                <span>Spring Boot</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://blog.akashramesh.in" target="_blank"
-                  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Visit</a
-                >
-                <a
-                  href="https://github.com/akashramesh13/blog-frontend"
-                  target="_blank"
-                  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a
-                >
-              </div>
-            </div>
-          </article>
-
-          <!-- EXPENSIFY -->
-          <article class="project-card glass-medium glass-interactive">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/expensify.png"
-                alt="Expensify"
-                data-light="assets/expensify-light.png"
-                data-dark="assets/expensify-dark.png"
-                class="project-image theme-aware-img"
-              />
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <div>
-                  <h3>Expensify</h3>
-                  <span class="project-subtitle">Expense Tracker</span>
-                </div>
-              </div>
-              <p class="project-story">
-                One of the first applications I built while learning React. It
-                taught me authentication, state management and how to build
-                interfaces people can actually use.
-              </p>
-              <div class="tech-stack">
-                <span>React</span>
-                <span>Redux</span>
-                <span>Firebase</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://expensify.akashramesh.in" target="_blank"
-                  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Visit</a
-                >
-                <a
-                  href="https://github.com/akashramesh13/expensify-app"
-                  target="_blank"
-                  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a
-                >
-              </div>
-            </div>
-          </article>
-
-          <!-- INDECISION -->
-          <article class="project-card glass-medium glass-interactive">
-            <div class="card-image-wrapper">
-              <!-- Using data attributes for light and dark image sources -->
-              <img
-                src="assets/indecision-dark.png"
-                data-light="assets/indecision-light.png"
-                data-dark="assets/indecision-dark.png"
-                alt="Indecision"
-                class="project-image theme-aware-img theme-aware-img"
-              />
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <div>
-                  <h3>Indecision</h3>
-                  <span class="project-subtitle">Decision Maker</span>
-                </div>
-              </div>
-              <p class="project-story">
-                A fun little project that settles the "I don't know" problem
-                with a single click.
-              </p>
-              <div class="tech-stack">
-                <span>React</span>
-                <span>JavaScript</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://indecision.akashramesh.in" target="_blank"
-                  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Live Demo</a
-                >
-                <a
-                  href="https://github.com/akashramesh13/indecision-app"
-                  target="_blank"
-                  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a
-                >
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal">
-      <div class="content">
-        <h2>Let's Connect</h2>
-        <p class="contact-text">
-          Have a problem to solve? Drop me an email at
-          <a href="mailto:hello@akashramesh.in">hello@akashramesh.in</a>.
+        <p>
+          Hey, I'm <strong>Akash</strong> - a Platform Engineer at
+          <strong>ADP India</strong>. I spend most of my time playing chess, but I genuinely enjoy taking ideas from a
+          blank editor to
+          something people can actually use.
         </p>
-        <div class="social-icons">
-          <a
-            href="https://github.com/akashramesh13"
-            target="_blank"
-            class="glass-medium glass-interactive"
-          >
-            GitHub
-          </a>
 
-          <a
-            href="https://linkedin.com/in/akashramesh1999/"
-            target="_blank"
-            class="glass-medium glass-interactive"
-          >
-            LinkedIn
-          </a>
+        <p>
+          I love software that's simple, fast and respects its users. I
+          care about minimal design over feature bloat, and privacy over
+          convenience whenever possible.
+        </p>
 
-          <a
-            href="https://leetcode.com/u/akashramesh13/"
-            target="_blank"
-            class="glass-medium glass-interactive"
-          >
-            LeetCode
-          </a>
-        </div>
+        <p>
+          That philosophy is what led me to build <strong>Aham</strong> - a
+          cross-platform journaling app built with React Native that works
+          completely offline. No accounts, no cloud sync, no subscriptions. It respects your privacy by not even trying
+          to connect to the internet.
+        </p>
+
+        <p>
+          I'm usually trying to beat the Najdorf opening with white, hacking on side projects, thinking about
+          systems design, or chasing down a rabbit hole interesting
+          enough to spend a weekend on.
+        </p>
+
+        <p>
+          Before software completely took over my life, I played chess
+          competitively and picked up six medals at the national and
+          zonal level, including a <strong>CBSE South Zone Gold</strong>
+          and two <strong>CBSE National Silvers</strong>. The board
+          taught me more about patience and pattern recognition than any
+          textbook ever did.
+        </p>
       </div>
-    </section>
+      <div class="about-image">
+        <img src="./assets/getting_prize_for_chess.jpeg"
+          alt="Receiving prize at Inter-College South Zone Chess Championship, 2017" />
+        <p class="about-image-caption">Inter-College South Zone Runner-up, 2017</p>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- PROJECTS -->
+  <section id="projects" class="section layout-section reveal">
+    <div class="content-wrapper">
+      <h2 class="section-title">Things I've Built</h2>
+      <div class="project-grid">
+        <!-- AHAM -->
+        <article class="project-card glass-medium glass-interactive">
+          <div class="card-image-wrapper">
+            <img src="assets/aham-dark.png" data-light="assets/aham-light.png" data-dark="assets/aham-dark.png"
+              alt="Aham Screenshot" class="project-image theme-aware-img" />
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3>Aham</h3>
+                <span class="project-subtitle">Cross-platform Journal</span>
+              </div>
+            </div>
+            <p class="project-story">
+              A journal that respects privacy. No accounts, no subscriptions,
+              no cloud sync. Just open the app and write.
+            </p>
+            <div class="tech-stack">
+              <span>React Native</span>
+              <span>SQLite</span>
+              <span>TypeScript</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://aham.akashramesh.in" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: -2px; margin-right: 4px;">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg> Visit
+              </a>
+
+              <a href="assets/aham.apk" download> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg> Download APK </a>
+
+              <a href="https://github.com/akashramesh13/aham" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: -2px; margin-right: 4px;">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg> GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PIXEL PURSUIT -->
+        <article class="project-card glass-medium glass-interactive">
+          <div class="card-image-wrapper">
+            <img src="assets/blog.png" data-light="assets/blog-light.png" data-dark="assets/blog-dark.png"
+              alt="Pixel Pursuit" class="project-image theme-aware-img" />
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3>Pixel Pursuit</h3>
+                <span class="project-subtitle">Full-stack Blog</span>
+              </div>
+            </div>
+            <p class="project-story">
+              My corner of the internet. A place where I write about software,
+              Linux, and the things I enjoy building.
+            </p>
+            <div class="tech-stack">
+              <span>React</span>
+              <span>Spring Boot</span>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://blog.akashramesh.in" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                  height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg> Visit</a>
+              <a href="https://github.com/akashramesh13/blog-frontend" target="_blank"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: -2px; margin-right: 4px;">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- EXPENSIFY -->
+        <article class="project-card glass-medium glass-interactive">
+          <div class="card-image-wrapper">
+            <img src="assets/expensify.png" alt="Expensify" data-light="assets/expensify-light.png"
+              data-dark="assets/expensify-dark.png" class="project-image theme-aware-img" />
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3>Expensify</h3>
+                <span class="project-subtitle">Expense Tracker</span>
+              </div>
+            </div>
+            <p class="project-story">
+              One of the first applications I built while learning React. It
+              taught me authentication, state management and how to build
+              interfaces people can actually use.
+            </p>
+            <div class="tech-stack">
+              <span>React</span>
+              <span>Redux</span>
+              <span>Firebase</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://expensify.akashramesh.in" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg> Visit</a>
+              <a href="https://github.com/akashramesh13/expensify-app" target="_blank"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: -2px; margin-right: 4px;">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- INDECISION -->
+        <article class="project-card glass-medium glass-interactive">
+          <div class="card-image-wrapper">
+            <!-- Using data attributes for light and dark image sources -->
+            <img src="assets/indecision-dark.png" data-light="assets/indecision-light.png"
+              data-dark="assets/indecision-dark.png" alt="Indecision"
+              class="project-image theme-aware-img theme-aware-img" />
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3>Indecision</h3>
+                <span class="project-subtitle">Decision Maker</span>
+              </div>
+            </div>
+            <p class="project-story">
+              A fun little project that settles the "I don't know" problem
+              with a single click.
+            </p>
+            <div class="tech-stack">
+              <span>React</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://indecision.akashramesh.in" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg> Live Demo</a>
+              <a href="https://github.com/akashramesh13/indecision-app" target="_blank"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: -2px; margin-right: 4px;">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg> GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section reveal">
+    <div class="content">
+      <h2>Let's Connect</h2>
+      <p class="contact-text">
+        Want to talk about software or chess? Drop me an email at
+        <a href="mailto:hello@akashramesh.in">hello@akashramesh.in</a>.
+      </p>
+      <div class="social-icons">
+        <a href="https://github.com/akashramesh13" target="_blank" class="glass-medium glass-interactive">
+          GitHub
+        </a>
+
+        <a href="https://linkedin.com/in/akashramesh1999/" target="_blank" class="glass-medium glass-interactive">
+          LinkedIn
+        </a>
+
+        <a href="https://leetcode.com/u/akashramesh13/" target="_blank" class="glass-medium glass-interactive">
+          LeetCode
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
