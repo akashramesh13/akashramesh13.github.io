@@ -43,22 +43,22 @@
 }
 
 :root.theme-light {
-  /* Light: Warm, understated — Pixel Pursuit burgundy */
-  --bg-main: #f8f6f2;
-  --bg-gradient: linear-gradient(135deg, #f5f3ee, #faf8f4);
+  /* Light: Aham Vibe - White/Orange */
+  --bg-main: #fcfcfc;
+  --bg-gradient: linear-gradient(135deg, #f4f4f5, #ffffff);
   --bg-card: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.15));
-  --text-main: #1a1a1a;
-  --text-muted: #5c5c5c;
-  --accent: #8a0322;
-  --accent-secondary: #8a0322;
-  --header-bg: rgba(248, 246, 242, 0.5);
-  --tag-bg: rgba(138, 3, 34, 0.06);
-  --tag-border: rgba(138, 3, 34, 0.15);
-  --grid-color: rgba(0, 0, 0, 0.025);
-  --glass-border: rgba(0, 0, 0, 0.06);
-  --glass-highlight: rgba(255, 255, 255, 0.6);
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.2));
+  --text-main: #18181b;
+  --text-muted: #52525b;
+  --accent: #f97316;
+  --accent-secondary: #3b82f6;
+  --header-bg: rgba(255, 255, 255, 0.4);
+  --tag-bg: rgba(59, 130, 246, 0.1);
+  --tag-border: rgba(59, 130, 246, 0.2);
+  --grid-color: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
 }
 
 :root.theme-terminal {
@@ -506,7 +506,7 @@ nav {
 }
 
 .btn.filled:hover {
-  background: rgba(138, 3, 34, 0.1);
+  background: rgba(249, 115, 22, 0.1);
   color: var(--accent);
 }
 
