@@ -105,6 +105,8 @@ $(document).ready(function () {
     // Using clientX/Y since the background is fixed to the viewport
     document.body.style.setProperty("--mouse-x", e.clientX + "px");
     document.body.style.setProperty("--mouse-y", e.clientY + "px");
+    document.documentElement.style.setProperty("--mouse-x", e.clientX + "px");
+    document.documentElement.style.setProperty("--mouse-y", e.clientY + "px");
   });
 });
 
