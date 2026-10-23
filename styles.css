@@ -43,7 +43,7 @@
 }
 
 :root.theme-light {
-  /* Light: White/Pink (#F6B4CF / #C2688A) */
+  /* Light: Pink Theme (#F6B4CF) */
   --bg-main: #fcfcfc;
   --bg-gradient: linear-gradient(135deg, #fdf6f9, #ffffff);
   --bg-card: linear-gradient(135deg,
@@ -51,13 +51,13 @@
       rgba(255, 255, 255, 0.45));
   --text-main: #18181b;
   --text-muted: #52525b;
-  --accent: #C2688A;
+  --accent: #F6B4CF;
   --accent-secondary: #F6B4CF;
   --header-bg: rgba(255, 255, 255, 0.65);
-  --tag-bg: rgba(246, 180, 207, 0.18);
-  --tag-border: rgba(194, 104, 138, 0.28);
-  --grid-color: rgba(194, 104, 138, 0.05);
-  --glass-border: rgba(194, 104, 138, 0.12);
+  --tag-bg: rgba(246, 180, 207, 0.22);
+  --tag-border: rgba(246, 180, 207, 0.45);
+  --grid-color: rgba(246, 180, 207, 0.08);
+  --glass-border: rgba(246, 180, 207, 0.25);
   --glass-highlight: rgba(255, 255, 255, 0.9);
 }
 
@@ -491,24 +491,45 @@ nav {
 
 .btn {
   padding: 14px 28px;
-  color: var(--accent);
+  color: var(--text-main);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.25s var(--spring-easing);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
 }
 
 .btn.filled {
   background: var(--accent);
-  color: #fff;
+  color: #18181b;
   border: 1px solid var(--accent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+:root.theme-terminal .btn.filled {
+  color: #ffffff;
 }
 
 .btn.filled:hover {
-  background: rgba(249, 115, 22, 0.1);
-  color: var(--accent);
+  background: var(--accent);
+  color: #18181b;
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+:root.theme-terminal .btn.filled:hover {
+  color: #ffffff;
+  filter: brightness(1.1);
 }
 
 .btn.outline {
@@ -517,6 +538,7 @@ nav {
 
 .btn.outline:hover {
   color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ABOUT */
