@@ -43,22 +43,22 @@
 }
 
 :root.theme-light {
-  /* Light: White/Pink (#F6B4CF) */
+  /* Light: White/Pink (#F6B4CF / #C2688A) */
   --bg-main: #fcfcfc;
-  --bg-gradient: linear-gradient(135deg, #f4f4f5, #ffffff);
+  --bg-gradient: linear-gradient(135deg, #fdf6f9, #ffffff);
   --bg-card: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.2));
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.45));
   --text-main: #18181b;
   --text-muted: #52525b;
   --accent: #C2688A;
   --accent-secondary: #F6B4CF;
-  --header-bg: rgba(255, 255, 255, 0.4);
+  --header-bg: rgba(255, 255, 255, 0.65);
   --tag-bg: rgba(246, 180, 207, 0.18);
   --tag-border: rgba(194, 104, 138, 0.28);
   --grid-color: rgba(194, 104, 138, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-highlight: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(194, 104, 138, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
 }
 
 :root.theme-terminal {
