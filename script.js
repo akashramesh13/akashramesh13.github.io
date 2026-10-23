@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let textColor = "#ffffff";
 
     if (themeName === "theme-light") {
-      accentColor = "#E27396";
+      accentColor = "#F4729E";
       bgColor = "#fcfcfc";
       textColor = "#18181b";
     } else if (themeName === "theme-terminal") {

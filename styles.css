@@ -43,7 +43,7 @@
 }
 
 :root.theme-light {
-  /* Light: Rich Velvet Rose (#E27396) */
+  /* Light: Cute Vibrant Pink (#F4729E) */
   --bg-main: #fcfcfc;
   --bg-gradient: linear-gradient(135deg, #fdf6f9, #ffffff);
   --bg-card: linear-gradient(135deg,
@@ -51,13 +51,13 @@
       rgba(255, 255, 255, 0.45));
   --text-main: #18181b;
   --text-muted: #52525b;
-  --accent: #E27396;
-  --accent-secondary: #E27396;
+  --accent: #F4729E;
+  --accent-secondary: #F4729E;
   --header-bg: rgba(255, 255, 255, 0.65);
-  --tag-bg: rgba(226, 115, 150, 0.14);
-  --tag-border: rgba(226, 115, 150, 0.35);
-  --grid-color: rgba(226, 115, 150, 0.05);
-  --glass-border: rgba(226, 115, 150, 0.18);
+  --tag-bg: rgba(244, 114, 158, 0.15);
+  --tag-border: rgba(244, 114, 158, 0.38);
+  --grid-color: rgba(244, 114, 158, 0.06);
+  --glass-border: rgba(244, 114, 158, 0.2);
   --glass-highlight: rgba(255, 255, 255, 0.9);
 }
 
@@ -512,7 +512,7 @@ nav {
   background: var(--accent);
   color: #ffffff;
   border: 1px solid var(--accent);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(244, 114, 158, 0.25);
 }
 
 :root.theme-terminal .btn.filled {
@@ -523,7 +523,7 @@ nav {
   background: var(--accent);
   color: #ffffff;
   transform: translateY(-2px);
-  filter: brightness(1.06);
+  filter: brightness(1.05);
   box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
