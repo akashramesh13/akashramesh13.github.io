@@ -390,13 +390,29 @@ nav {
   align-items: center;
 }
 
-.hero-section h1 {
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.hero-greeting {
   font-family: var(--apple-display);
-  font-size: clamp(40px, 6vw, 68px);
-  margin-bottom: 16px;
-  letter-spacing: -0.025em;
-  line-height: 1.06;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.hero-name {
+  font-family: var(--apple-display);
+  font-size: clamp(48px, 8vw, 84px);
   font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .hero-section p {
@@ -404,7 +420,7 @@ nav {
   color: var(--text-muted);
   font-family: var(--apple-text);
   letter-spacing: -0.015em;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   min-height: 40px;
 }
 

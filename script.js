@@ -43,7 +43,7 @@ $(document).ready(function () {
     });
   }
 
-  // Scroll Reveal Animations
+  // Scroll Reveal Animations (Apple Clean Fade — reveals once and stays visible)
   const revealElements = document.querySelectorAll(
     "#about h2, .about-text p, .about-image, #projects h2, .project-card, #contact h2, .contact-text"
   );
@@ -52,18 +52,15 @@ $(document).ready(function () {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
-          requestAnimationFrame(() => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-            } else {
-              entry.target.classList.remove("active");
-            }
-          });
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target); // Never disappear on scroll once revealed
+          }
         });
       },
       {
-        threshold: 0,
-        rootMargin: "-15% 0px 0px 0px",
+        threshold: 0.05,
+        rootMargin: "0px",
       },
     );
 
