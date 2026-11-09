@@ -393,10 +393,10 @@ nav {
 
 .section h2 {
   font-family: var(--apple-display);
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(32px, 4.5vw, 46px);
   color: var(--text-main);
   margin-bottom: 2rem;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   display: inline-block;
 }
 
@@ -456,7 +456,7 @@ nav {
 
 .hero-title {
   font-family: var(--apple-display);
-  font-size: clamp(38px, 6vw, 64px);
+  font-size: clamp(44px, 6.5vw, 70px);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.08;
@@ -466,7 +466,7 @@ nav {
 }
 
 .hero-section p {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: clamp(19px, 2.6vw, 26px);
   color: var(--text-muted);
   font-family: var(--apple-text);
   letter-spacing: -0.015em;
@@ -553,15 +553,15 @@ nav {
 }
 
 .about-text {
-  max-width: 620px;
-  font-size: 17px;
-  line-height: 1.6;
-  letter-spacing: -0.015em;
+  max-width: 640px;
+  font-size: 18.5px;
+  line-height: 1.68;
+  letter-spacing: -0.012em;
   color: var(--text-muted);
 }
 
 .about-text p {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.35rem;
 }
 
 .about-text strong {
@@ -576,7 +576,7 @@ nav {
 
 .about-image img {
   width: 100%;
-  height: 400px;
+  height: 420px;
   object-fit: cover;
   object-position: top center;
   border-radius: 18px;
@@ -648,7 +648,7 @@ nav {
 }
 
 .project-card h3 {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--text-main);
@@ -665,8 +665,8 @@ nav {
 }
 
 .project-story {
-  font-size: 14.5px;
-  line-height: 1.5;
+  font-size: 15.5px;
+  line-height: 1.55;
   color: var(--text-muted);
   margin-bottom: 20px;
 }
@@ -733,8 +733,8 @@ nav {
 }
 
 .contact-text {
-  font-size: 17px;
-  line-height: 1.5;
+  font-size: 19px;
+  line-height: 1.6;
   margin-bottom: 36px;
   color: var(--text-muted);
 }
