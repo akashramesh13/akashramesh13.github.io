@@ -361,12 +361,27 @@ nav {
 }
 
 #about {
-  padding-top: 80px;
+  min-height: calc(100svh - 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: clamp(60px, 8vh, 100px);
+  padding-bottom: clamp(60px, 8vh, 100px);
+  box-sizing: border-box;
+  scroll-margin-top: 52px;
 }
 
 #projects {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  min-height: calc(100svh - 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: clamp(60px, 8vh, 100px);
+  padding-bottom: clamp(60px, 8vh, 100px);
+  box-sizing: border-box;
+  scroll-margin-top: 52px;
 }
 
 .content-wrapper,
@@ -489,18 +504,18 @@ nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease,
+    color 0.2s ease,
     transform 0.15s ease;
 }
 
 .btn:hover {
   background: var(--bg-surface2);
   border-color: var(--text-muted);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
   transform: translateY(-1px);
 }
 
@@ -512,18 +527,19 @@ nav {
   background: var(--accent);
   color: #ffffff;
   border: 1px solid transparent;
-  box-shadow: 0 2px 10px rgba(0, 113, 227, 0.3);
+  box-shadow: none;
 }
 
 .btn.filled:hover {
   background: var(--accent-secondary);
   color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 113, 227, 0.4);
+  box-shadow: none;
   transform: translateY(-1px);
 }
 
 .btn.filled:active {
   transform: scale(0.98);
+  opacity: 0.9;
 }
 
 /* ABOUT SECTION */
@@ -700,8 +716,15 @@ nav {
 /* CONTACT SECTION */
 #contact {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 96px;
+  min-height: calc(70svh - 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: clamp(60px, 8vh, 100px);
+  padding-bottom: clamp(80px, 10vh, 140px);
+  box-sizing: border-box;
+  scroll-margin-top: 52px;
 }
 
 #contact .content {
@@ -742,14 +765,20 @@ nav {
   text-decoration: none;
   font-size: 13.5px;
   font-weight: 500;
-  transition: all 0.2s ease;
+  box-shadow: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .social-icons a:hover {
   background: var(--bg-surface2);
-  border-color: var(--accent);
+  border-color: var(--text-muted);
   color: var(--accent);
   transform: translateY(-1px);
+  box-shadow: none;
 }
 
 ::selection {
