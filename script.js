@@ -32,23 +32,6 @@ $(document).ready(function () {
     });
   });
 
-  // Header Auto-Hide
-  let lastScrollTop = 0;
-  const header = $("header");
-  $(window).on("scroll", function () {
-    const currentScroll = $(window).scrollTop();
-    if (currentScroll > 100) {
-      if (currentScroll > lastScrollTop) {
-        header.addClass("hide");
-      } else {
-        header.removeClass("hide");
-      }
-    } else {
-      header.removeClass("hide");
-    }
-    lastScrollTop = currentScroll;
-  });
-
   // Scroll Progress Bar
   const progressBar = document.getElementById("scroll-progress");
   if (progressBar) {
@@ -85,19 +68,6 @@ $(document).ready(function () {
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
-  }
-
-  // Disappear scroll cue forever once scrolling starts
-  const scrollCue = document.querySelector(".scroll-cue");
-  if (scrollCue) {
-    window.addEventListener("scroll", function hideCue() {
-      if (window.scrollY > 50) {
-        scrollCue.style.opacity = "0";
-        scrollCue.style.transition = "opacity 0.4s";
-        setTimeout(() => scrollCue.remove(), 400);
-        window.removeEventListener("scroll", hideCue);
-      }
-    }, { passive: true });
   }
 
   // Global Cursor Tracking for Grid Glow

@@ -7,8 +7,10 @@
 :root {
   color-scheme: light dark;
 
-  /* Font Stacks */
-  --apple-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Font Stacks — Apple Canonical Hierarchy */
+  --apple-font: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --apple-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --apple-text: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --apple-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
 
   /* Animation */
@@ -368,6 +370,7 @@ nav {
 }
 
 .section h2 {
+  font-family: var(--apple-display);
   font-size: clamp(28px, 4vw, 40px);
   color: var(--text-main);
   margin-bottom: 2rem;
@@ -375,26 +378,31 @@ nav {
   display: inline-block;
 }
 
-/* HERO SECTION */
+/* HERO SECTION (Apple Center Stage) */
 .hero-section .content {
-  text-align: left;
+  text-align: center;
   max-width: 840px;
   padding-top: 0;
   padding-bottom: 40px;
   transform: translateY(-3vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-section h1 {
-  font-size: clamp(40px, 6vw, 64px);
+  font-family: var(--apple-display);
+  font-size: clamp(40px, 6vw, 68px);
   margin-bottom: 16px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.06;
+  font-weight: 700;
 }
 
 .hero-section p {
   font-size: clamp(18px, 2.5vw, 24px);
   color: var(--text-muted);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-family: var(--apple-text);
   letter-spacing: -0.015em;
   margin-bottom: 32px;
   min-height: 40px;
@@ -404,44 +412,10 @@ nav {
   color: var(--accent);
 }
 
-.scroll-cue {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 22px;
-  height: 34px;
-  border: 2px solid var(--border);
-  border-radius: 980px;
-  opacity: 0.6;
-}
-
-.scroll-cue::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 6px;
-  background: var(--text-muted);
-  border-radius: 980px;
-  animation: appleScrollWheel 2s infinite ease-in-out;
-}
-
-@keyframes appleScrollWheel {
-  0% {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, 12px);
-    opacity: 0;
-  }
-}
-
 .btn-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 0;
   gap: 14px;
 }
