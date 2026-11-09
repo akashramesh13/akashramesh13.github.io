@@ -142,12 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
 
   // Theme cycle order: system is first and default
-  const themes = ["theme-system", "theme-light", "theme-terminal", "theme-catppuccin"];
+  const themes = ["theme-system", "theme-light", "theme-terminal"];
   const icons = {
     "theme-system": "icon-system",
     "theme-light": "icon-sun",
     "theme-terminal": "icon-moon",
-    "theme-catppuccin": "icon-cat",
   };
 
   // Resolve OS preference to a concrete theme
@@ -233,26 +232,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Helper to dynamically change favicon based on theme color
+  // Helper to dynamically change favicon based on theme color (Apple HIG Palette)
   function updateFavicon(themeName) {
-    let accentColor = "#f5a97f";
-    let bgColor = "#24273a"; // Catppuccin
-    let textColor = "#ffffff";
+    let accentColor = "#0071E3";
+    let bgColor = "#FFFFFF";
+    let textColor = "#1D1D1F";
 
-    if (themeName === "theme-light") {
-      accentColor = "#F4729E";
-      bgColor = "#fcfcfc";
-      textColor = "#18181b";
-    } else if (themeName === "theme-terminal") {
-      accentColor = "#22c55e";
-      bgColor = "#09090b";
-      textColor = "#ffffff";
+    if (themeName === "theme-terminal" || themeName === "theme-catppuccin") {
+      accentColor = "#2997FF";
+      bgColor = "#000000";
+      textColor = "#F5F5F7";
     }
 
     const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <rect width="100" height="100" rx="24" fill="${bgColor}" />
-  <text x="50" y="68" font-family="monospace, system-ui, -apple-system, sans-serif" font-size="46" font-weight="900" fill="${textColor}" text-anchor="middle" letter-spacing="-2">
+  <text x="50" y="68" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="46" font-weight="900" fill="${textColor}" text-anchor="middle" letter-spacing="-2">
     <tspan fill="${accentColor}">&lt;</tspan>A<tspan fill="${accentColor}">/&gt;</tspan>
   </text>
 </svg>`.trim();
