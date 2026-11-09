@@ -346,6 +346,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  background: radial-gradient(ellipse 70% 50% at 50% 25%, rgba(0, 113, 227, 0.05), transparent 75%);
+}
+
+:root.theme-dark .hero-section,
+:root.theme-terminal .hero-section {
+  background: radial-gradient(ellipse 70% 50% at 50% 25%, rgba(41, 151, 255, 0.08), transparent 75%);
 }
 
 .section:not(.hero-section) {
@@ -390,29 +397,57 @@ nav {
   align-items: center;
 }
 
-.hero-title {
-  display: flex;
-  flex-direction: column;
+.hero-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 20px;
-}
-
-.hero-greeting {
-  font-family: var(--apple-display);
-  font-size: clamp(24px, 3.5vw, 36px);
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 980px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  font-family: var(--apple-text);
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: -0.015em;
-  line-height: 1.15;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
 }
 
-.hero-name {
+.hero-badge:hover {
+  border-color: var(--accent);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34C759;
+  box-shadow: 0 0 0 2px rgba(52, 199, 89, 0.25);
+  animation: applePulseDot 2s ease-in-out infinite;
+}
+
+@keyframes applePulseDot {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(52, 199, 89, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(52, 199, 89, 0.08);
+  }
+}
+
+.hero-title {
   font-family: var(--apple-display);
-  font-size: clamp(48px, 8vw, 84px);
+  font-size: clamp(38px, 6vw, 64px);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin-bottom: 20px;
+  color: var(--text-main);
+  text-align: center;
 }
 
 .hero-section p {
@@ -425,7 +460,10 @@ nav {
 }
 
 .highlight {
-  color: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, #43B5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .btn-container {
@@ -438,10 +476,10 @@ nav {
 
 /* BUTTONS (Apple Pill CTAs) */
 .btn {
-  padding: 10px 22px;
+  padding: 11px 24px;
   color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -451,16 +489,19 @@ nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
+    box-shadow 0.2s ease,
     transform 0.15s ease;
 }
 
 .btn:hover {
   background: var(--bg-surface2);
   border-color: var(--text-muted);
-  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
 }
 
 .btn:active {
@@ -471,14 +512,14 @@ nav {
   background: var(--accent);
   color: #ffffff;
   border: 1px solid transparent;
-  box-shadow: 0 2px 8px rgba(0, 113, 227, 0.25);
+  box-shadow: 0 2px 10px rgba(0, 113, 227, 0.3);
 }
 
 .btn.filled:hover {
   background: var(--accent-secondary);
   color: #ffffff;
-  transform: scale(1.01);
-  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 113, 227, 0.4);
+  transform: translateY(-1px);
 }
 
 .btn.filled:active {
