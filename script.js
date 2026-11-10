@@ -21,19 +21,37 @@ $(document).ready(function () {
     }
   });
 
-  // Scrollspy
-  $(window).on("scroll", function () {
+  // Scrollspy with bottom-of-page detection
+  function updateScrollspy() {
     let scrollPosition = $(window).scrollTop();
+    let windowHeight = $(window).height();
+    let docHeight = $(document).height();
+
+    // If scrolled to the bottom of the page (within 60px), highlight Contact
+    if (scrollPosition + windowHeight >= docHeight - 60) {
+      $(".nav-links a").removeClass("active");
+      $(".nav-links a[href='#contact']").addClass("active");
+      return;
+    }
+
+    let activeId = "";
     $(".section").each(function () {
-      let sectionTop = $(this).offset().top - $(window).height() / 3;
+      let sectionTop = $(this).offset().top - 140;
       let sectionBottom = sectionTop + $(this).outerHeight();
       let sectionId = $(this).attr("id");
       if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        $(".nav-links a").removeClass("active");
-        $(".nav-links a[href='#" + sectionId + "']").addClass("active");
+        activeId = sectionId;
       }
     });
-  });
+
+    if (activeId) {
+      $(".nav-links a").removeClass("active");
+      $(".nav-links a[href='#" + activeId + "']").addClass("active");
+    }
+  }
+
+  $(window).on("scroll", updateScrollspy);
+  updateScrollspy();
 
   // Scroll Progress Bar
   const progressBar = document.getElementById("scroll-progress");

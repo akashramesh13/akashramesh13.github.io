@@ -364,19 +364,9 @@ nav {
   padding-bottom: var(--section-spacing);
 }
 
-#about {
-  min-height: calc(100svh - 52px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: clamp(60px, 8vh, 100px);
-  padding-bottom: clamp(60px, 8vh, 100px);
-  box-sizing: border-box;
-  scroll-margin-top: 52px;
-}
-
-#projects {
+#about,
+#projects,
+#contact {
   min-height: calc(100svh - 52px);
   display: flex;
   flex-direction: column;
