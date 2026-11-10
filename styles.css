@@ -145,6 +145,10 @@ body {
     color 0.25s ease;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 /* ─── Apple HIG: Clean canvas, no decorative grid or mouse glow ─── */
 #bg-canvas,
 #bg-glow {
@@ -813,9 +817,20 @@ nav {
   }
 
   .hamburger {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
     z-index: 1001;
     cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .hamburger:hover,
+  .hamburger:active {
+    background: var(--bg-surface2);
   }
 
   .hamburger svg line {
@@ -858,16 +873,17 @@ nav {
     right: -100%;
     width: 100%;
     height: 100vh;
-    background: var(--header-bg);
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    height: 100dvh;
+    background: var(--bg-main);
     border-left: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    transition: right 0.4s var(--smooth-easing);
+    padding: 2rem;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.35);
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
   }
 
   .nav-links.active {
@@ -875,12 +891,28 @@ nav {
   }
 
   .nav-links li {
-    margin: 16px 0;
+    margin: 14px 0;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
   }
 
   .nav-links a {
-    font-size: 1.25rem;
+    font-family: var(--apple-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text-main);
     display: block;
+    padding: 12px 18px;
+    border-radius: 12px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent);
+    background: var(--bg-surface);
   }
 
   .hero-section h1 {

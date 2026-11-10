@@ -4,17 +4,20 @@ $(document).ready(function () {
     e.stopPropagation();
     $(".nav-links").toggleClass("active");
     $(this).toggleClass("active");
+    $("body").toggleClass("menu-open");
   });
 
   $(".nav-links a").on("click", function () {
     $(".nav-links").removeClass("active");
     $(".hamburger").removeClass("active");
+    $("body").removeClass("menu-open");
   });
 
   $(document).on("click", function (e) {
     if (!$(e.target).closest("nav").length) {
       $(".nav-links").removeClass("active");
       $(".hamburger").removeClass("active");
+      $("body").removeClass("menu-open");
     }
   });
 
